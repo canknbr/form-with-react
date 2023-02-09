@@ -1,11 +1,7 @@
 import { useState } from 'react';
-
+import MultiStepForm from './components/MultiStepForm';
 function App() {
-  return (
-    <div>
-      <p>React App</p>
-    </div>
-  );
+  return <MultiStepForm />;
 }
 
 export default App;

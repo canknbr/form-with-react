@@ -12,7 +12,7 @@
 }
 
 body {
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 16px;
   background-color: var(--magnolia);
   height: 100vh;
@@ -24,7 +24,7 @@ body {
   color: var(--marine-blue);
 }
 
-body > *{
+body > * {
   grid-column: 2;
   grid-row: 2;
   width: 100%;
