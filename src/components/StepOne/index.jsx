@@ -1,7 +1,7 @@
 import React from 'react';
-
-function StepOne() {
-  return <div>Step One</div>;
+import Step from '../Step';
+function StepOne(props) {
+  return <Step {...props}>Step One</Step>;
 }
 
 export default StepOne;

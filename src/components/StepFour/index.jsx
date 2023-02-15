@@ -1,7 +1,7 @@
 import React from 'react';
-
-function StepFour() {
-  return <div>MultiStepForm</div>;
+import Step from '../Step';
+function StepFour(props) {
+  return <Step {...props}>MultiStepForm</Step>;
 }
 
 export default StepFour;
