@@ -18,6 +18,15 @@ export const Item = styled.div`
   gap: 16px;
   align-items: center;
   text-transform: uppercase;
+
+  ${({ isActive }) =>
+    isActive &&
+    `
+  ${ItemNumber} {
+    background-color: #fff;
+    color: #000;
+  }
+  `}
 `;
 
 export const ItemNumber = styled.div`
