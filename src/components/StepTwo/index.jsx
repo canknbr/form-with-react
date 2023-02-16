@@ -12,9 +12,11 @@ import {
 } from './constant';
 const { step2 } = FORM;
 
-function StepTwo(props) {
-  const [plan, setPlan] = useState(DEFAULT_PLAN);
-  const [billingType, setBillingType] = useState(DEFAULT_BILLING_TYPE);
+function StepTwo({ onStepSubmit, formData, ...props }) {
+  const [plan, setPlan] = useState(formData.step2.plan ?? DEFAULT_PLAN);
+  const [billingType, setBillingType] = useState(
+    formData.step2.billingType ?? DEFAULT_BILLING_TYPE
+  );
 
   const changePlan = id => {
     setPlan(id);
@@ -22,18 +24,21 @@ function StepTwo(props) {
   const changeBillingType = type => {
     setBillingType(type);
   };
+  const onSubmit = () => {
+    onStepSubmit('step2', 'step3', { plan, billingType });
+  };
   return (
-    <Step {...props}>
+    <Step handleSubmit={onSubmit} {...props}>
       <S.StepTwo>
         <S.RadioGroup>
           {step2[billingType].map(item => {
             return (
-              <S.RadioLabel key={item.id} isSelected={item.id === plan}>
+              <S.RadioLabel key={item.id} isSelected={item.id === plan.id}>
                 <S.RadioInput
                   type="radio"
                   name="plan-type"
                   value="basic"
-                  onChange={() => changePlan(item.id)}
+                  onChange={() => changePlan(item)}
                 />
                 <S.Icon src={Icons[item.id]} />
                 <S.Title>{item.title}</S.Title>
